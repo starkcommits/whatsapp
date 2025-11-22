@@ -1,221 +1,222 @@
 {
-    "actions": [],
-    "allow_rename": 1,
-    "autoname": "field:connection_name",
-    "creation": "2025-01-23 01:00:00.000000",
-    "doctype": "DocType",
-    "editable_grid": 1,
-    "engine": "InnoDB",
-    "field_order": [
-        "connection_name",
-        "phone_number",
-        "column_break_3",
-        "status",
-        "connection_method",
-        "section_break_5",
-        "qr_code",
-        "pairing_code",
-        "column_break_8",
-        "last_connected",
-        "last_disconnected",
-        "section_break_11",
-        "browser_name",
-        "browser_version",
-        "column_break_14",
-        "mark_online_on_connect",
-        "sync_full_history",
-        "section_break_17",
-        "session_data",
-        "section_break_19",
-        "daily_message_limit",
-        "monthly_message_limit",
-        "column_break_22",
-        "messages_sent_today",
-        "messages_sent_this_month"
-    ],
-    "fields": [
-        {
-            "fieldname": "connection_name",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Connection Name",
-            "reqd": 1,
-            "unique": 1
-        },
-        {
-            "fieldname": "phone_number",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Phone Number",
-            "reqd": 1
-        },
-        {
-            "fieldname": "column_break_3",
-            "fieldtype": "Column Break"
-        },
-        {
-            "default": "Disconnected",
-            "fieldname": "status",
-            "fieldtype": "Select",
-            "in_list_view": 1,
-            "label": "Status",
-            "options": "Disconnected\\nConnecting\\nConnected\\nFailed",
-            "reqd": 1
-        },
-        {
-            "default": "QR Code",
-            "fieldname": "connection_method",
-            "fieldtype": "Select",
-            "label": "Connection Method",
-            "options": "QR Code\\nPairing Code",
-            "reqd": 1
-        },
-        {
-            "fieldname": "section_break_5",
-            "fieldtype": "Section Break",
-            "label": "Connection Details"
-        },
-        {
-            "depends_on": "eval:doc.connection_method=='QR Code'",
-            "fieldname": "qr_code",
-            "fieldtype": "HTML",
-            "label": "QR Code"
-        },
-        {
-            "depends_on": "eval:doc.connection_method=='Pairing Code'",
-            "fieldname": "pairing_code",
-            "fieldtype": "Data",
-            "label": "Pairing Code",
-            "read_only": 1
-        },
-        {
-            "fieldname": "column_break_8",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "last_connected",
-            "fieldtype": "Datetime",
-            "label": "Last Connected",
-            "read_only": 1
-        },
-        {
-            "fieldname": "last_disconnected",
-            "fieldtype": "Datetime",
-            "label": "Last Disconnected",
-            "read_only": 1
-        },
-        {
-            "collapsible": 1,
-            "fieldname": "section_break_11",
-            "fieldtype": "Section Break",
-            "label": "Browser Configuration"
-        },
-        {
-            "default": "Chrome",
-            "fieldname": "browser_name",
-            "fieldtype": "Select",
-            "label": "Browser Name",
-            "options": "Chrome\\nFirefox\\nSafari\\nEdge\\nOpera"
-        },
-        {
-            "default": "Desktop",
-            "fieldname": "browser_version",
-            "fieldtype": "Select",
-            "label": "Browser Version",
-            "options": "Desktop\\nMacOS\\nUbuntu"
-        },
-        {
-            "fieldname": "column_break_14",
-            "fieldtype": "Column Break"
-        },
-        {
-            "default": "0",
-            "fieldname": "mark_online_on_connect",
-            "fieldtype": "Check",
-            "label": "Mark Online on Connect"
-        },
-        {
-            "default": "1",
-            "fieldname": "sync_full_history",
-            "fieldtype": "Check",
-            "label": "Sync Full History"
-        },
-        {
-            "collapsible": 1,
-            "fieldname": "section_break_17",
-            "fieldtype": "Section Break",
-            "label": "Session Data"
-        },
-        {
-            "fieldname": "session_data",
-            "fieldtype": "Long Text",
-            "hidden": 1,
-            "label": "Session Data",
-            "read_only": 1
-        },
-        {
-            "collapsible": 1,
-            "fieldname": "section_break_19",
-            "fieldtype": "Section Break",
-            "label": "Rate Limiting"
-        },
-        {
-            "default": "1000",
-            "description": "Maximum messages that can be sent per day",
-            "fieldname": "daily_message_limit",
-            "fieldtype": "Int",
-            "label": "Daily Message Limit"
-        },
-        {
-            "default": "30000",
-            "description": "Maximum messages that can be sent per month",
-            "fieldname": "monthly_message_limit",
-            "fieldtype": "Int",
-            "label": "Monthly Message Limit"
-        },
-        {
-            "fieldname": "column_break_22",
-            "fieldtype": "Column Break"
-        },
-        {
-            "default": "0",
-            "fieldname": "messages_sent_today",
-            "fieldtype": "Int",
-            "label": "Messages Sent Today",
-            "read_only": 1
-        },
-        {
-            "default": "0",
-            "fieldname": "messages_sent_this_month",
-            "fieldtype": "Int",
-            "label": "Messages Sent This Month",
-            "read_only": 1
-        }
-    ],
-    "index_web_pages_for_search": 1,
-    "links": [],
-    "modified": "2025-01-23 01:00:00.000000",
-    "modified_by": "Administrator",
-    "module": "Whatsapp",
-    "name": "WhatsApp Connection",
-    "naming_rule": "By fieldname",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1,
-            "write": 1
-        }
-    ],
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "states": [],
-    "track_changes": 1
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:connection_name",
+ "creation": "2025-01-23 01:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "connection_name",
+  "phone_number",
+  "column_break_3",
+  "status",
+  "connection_method",
+  "section_break_5",
+  "qr_code",
+  "pairing_code",
+  "column_break_8",
+  "last_connected",
+  "last_disconnected",
+  "section_break_11",
+  "browser_name",
+  "browser_version",
+  "column_break_14",
+  "mark_online_on_connect",
+  "sync_full_history",
+  "section_break_17",
+  "session_data",
+  "section_break_19",
+  "daily_message_limit",
+  "monthly_message_limit",
+  "column_break_22",
+  "messages_sent_today",
+  "messages_sent_this_month"
+ ],
+ "fields": [
+  {
+   "fieldname": "connection_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Connection Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Disconnected",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Disconnected\nConnecting\nConnected\nFailed",
+   "reqd": 1
+  },
+  {
+   "default": "QR Code",
+   "fieldname": "connection_method",
+   "fieldtype": "Select",
+   "label": "Connection Method",
+   "options": "QR Code\nPairing Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Connection Details"
+  },
+  {
+   "depends_on": "eval: doc.connection_method == 'QR Code'",
+   "fieldname": "qr_code",
+   "fieldtype": "HTML",
+   "label": "QR Code"
+  },
+  {
+   "depends_on": "eval:doc.connection_method=='Pairing Code'",
+   "fieldname": "pairing_code",
+   "fieldtype": "Data",
+   "label": "Pairing Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_connected",
+   "fieldtype": "Datetime",
+   "label": "Last Connected",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_disconnected",
+   "fieldtype": "Datetime",
+   "label": "Last Disconnected",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break",
+   "label": "Browser Configuration"
+  },
+  {
+   "default": "Chrome",
+   "fieldname": "browser_name",
+   "fieldtype": "Select",
+   "label": "Browser Name",
+   "options": "Chrome\nFirefox\nSafari\nEdge\nOpera"
+  },
+  {
+   "default": "Desktop",
+   "fieldname": "browser_version",
+   "fieldtype": "Select",
+   "label": "Browser Version",
+   "options": "Desktop\nMacOS\nUbuntu"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "mark_online_on_connect",
+   "fieldtype": "Check",
+   "label": "Mark Online on Connect"
+  },
+  {
+   "default": "1",
+   "fieldname": "sync_full_history",
+   "fieldtype": "Check",
+   "label": "Sync Full History"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break",
+   "label": "Session Data"
+  },
+  {
+   "fieldname": "session_data",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "Session Data",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break",
+   "label": "Rate Limiting"
+  },
+  {
+   "default": "1000",
+   "description": "Maximum messages that can be sent per day",
+   "fieldname": "daily_message_limit",
+   "fieldtype": "Int",
+   "label": "Daily Message Limit"
+  },
+  {
+   "default": "30000",
+   "description": "Maximum messages that can be sent per month",
+   "fieldname": "monthly_message_limit",
+   "fieldtype": "Int",
+   "label": "Monthly Message Limit"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "messages_sent_today",
+   "fieldtype": "Int",
+   "label": "Messages Sent Today",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "messages_sent_this_month",
+   "fieldtype": "Int",
+   "label": "Messages Sent This Month",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-23 01:31:59.631883",
+ "modified_by": "Administrator",
+ "module": "Whatsapp",
+ "name": "WhatsApp Connection",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }
