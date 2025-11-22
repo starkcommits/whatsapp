@@ -1,0 +1,139 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:template_name",
+    "creation": "2025-01-23 01:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "template_name",
+        "template_type",
+        "column_break_3",
+        "category",
+        "language",
+        "section_break_6",
+        "content",
+        "section_break_8",
+        "media_url",
+        "media_file",
+        "section_break_11",
+        "variables",
+        "section_break_13",
+        "preview"
+    ],
+    "fields": [
+        {
+            "fieldname": "template_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Template Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "default": "Text",
+            "fieldname": "template_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Template Type",
+            "options": "Text\\nImage\\nVideo\\nAudio\\nDocument\\nLocation\\nContact\\nPoll",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "category",
+            "fieldtype": "Select",
+            "label": "Category",
+            "options": "Marketing\\nTransactional\\nOTP\\nService\\nOther"
+        },
+        {
+            "default": "en",
+            "fieldname": "language",
+            "fieldtype": "Data",
+            "label": "Language"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Content"
+        },
+        {
+            "description": "Use {{variable_name}} for variables",
+            "fieldname": "content",
+            "fieldtype": "Text Editor",
+            "label": "Content",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:['Image','Video','Audio','Document'].includes(doc.template_type)",
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break",
+            "label": "Media"
+        },
+        {
+            "depends_on": "eval:['Image','Video','Audio','Document'].includes(doc.template_type)",
+            "fieldname": "media_url",
+            "fieldtype": "Data",
+            "label": "Media URL"
+        },
+        {
+            "depends_on": "eval:['Image','Video','Audio','Document'].includes(doc.template_type)",
+            "fieldname": "media_file",
+            "fieldtype": "Attach",
+            "label": "Media File"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_11",
+            "fieldtype": "Section Break",
+            "label": "Variables"
+        },
+        {
+            "description": "JSON array of variable names used in template",
+            "fieldname": "variables",
+            "fieldtype": "Code",
+            "label": "Variables",
+            "options": "JSON"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_13",
+            "fieldtype": "Section Break",
+            "label": "Preview"
+        },
+        {
+            "fieldname": "preview",
+            "fieldtype": "HTML",
+            "label": "Preview"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-23 01:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Whatsapp",
+    "name": "WhatsApp Message Template",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

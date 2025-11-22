@@ -1,7 +1,56 @@
-.DS_Store
-*.pyc
-*.egg-info
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Environment
+.env
+.env.local
+
+# WhatsApp Auth
+auth_info_baileys/
+*.session
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
 *.swp
-tags
-node_modules
-__pycache__
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+pm2-logs/
+
+# Redis
+dump.rdb
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
