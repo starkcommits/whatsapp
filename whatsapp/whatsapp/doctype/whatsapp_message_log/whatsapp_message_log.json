@@ -1,0 +1,197 @@
+{
+    "actions": [],
+    "creation": "2025-01-23 01:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "message_id",
+        "direction",
+        "column_break_3",
+        "contact",
+        "campaign",
+        "section_break_6",
+        "message_type",
+        "template",
+        "column_break_9",
+        "status",
+        "timestamp",
+        "section_break_12",
+        "content",
+        "section_break_14",
+        "media_url",
+        "section_break_16",
+        "error_message",
+        "section_break_18",
+        "delivered_at",
+        "read_at",
+        "column_break_21",
+        "sent_at",
+        "failed_at"
+    ],
+    "fields": [
+        {
+            "fieldname": "message_id",
+            "fieldtype": "Data",
+            "label": "Message ID",
+            "read_only": 1
+        },
+        {
+            "default": "Outbound",
+            "fieldname": "direction",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Direction",
+            "options": "Inbound\\nOutbound",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "contact",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Contact",
+            "options": "WhatsApp Contact"
+        },
+        {
+            "fieldname": "campaign",
+            "fieldtype": "Link",
+            "label": "Campaign",
+            "options": "WhatsApp Campaign"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Message Details"
+        },
+        {
+            "fieldname": "message_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Message Type",
+            "options": "Text\\nImage\\nVideo\\nAudio\\nDocument\\nLocation\\nContact\\nPoll\\nReaction"
+        },
+        {
+            "fieldname": "template",
+            "fieldtype": "Link",
+            "label": "Template",
+            "options": "WhatsApp Message Template"
+        },
+        {
+            "fieldname": "column_break_9",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Queued",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Queued\\nSending\\nSent\\nDelivered\\nRead\\nFailed",
+            "reqd": 1
+        },
+        {
+            "default": "Now",
+            "fieldname": "timestamp",
+            "fieldtype": "Datetime",
+            "label": "Timestamp"
+        },
+        {
+            "fieldname": "section_break_12",
+            "fieldtype": "Section Break",
+            "label": "Content"
+        },
+        {
+            "fieldname": "content",
+            "fieldtype": "Long Text",
+            "label": "Content"
+        },
+        {
+            "collapsible": 1,
+            "depends_on": "eval:['Image','Video','Audio','Document'].includes(doc.message_type)",
+            "fieldname": "section_break_14",
+            "fieldtype": "Section Break",
+            "label": "Media"
+        },
+        {
+            "fieldname": "media_url",
+            "fieldtype": "Data",
+            "label": "Media URL"
+        },
+        {
+            "collapsible": 1,
+            "depends_on": "eval:doc.status=='Failed'",
+            "fieldname": "section_break_16",
+            "fieldtype": "Section Break",
+            "label": "Error"
+        },
+        {
+            "fieldname": "error_message",
+            "fieldtype": "Small Text",
+            "label": "Error Message",
+            "read_only": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_18",
+            "fieldtype": "Section Break",
+            "label": "Timestamps"
+        },
+        {
+            "fieldname": "delivered_at",
+            "fieldtype": "Datetime",
+            "label": "Delivered At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "read_at",
+            "fieldtype": "Datetime",
+            "label": "Read At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_21",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sent_at",
+            "fieldtype": "Datetime",
+            "label": "Sent At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "failed_at",
+            "fieldtype": "Datetime",
+            "label": "Failed At",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-23 01:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Whatsapp",
+    "name": "WhatsApp Message Log",
+    "naming_rule": "Autoincrement",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

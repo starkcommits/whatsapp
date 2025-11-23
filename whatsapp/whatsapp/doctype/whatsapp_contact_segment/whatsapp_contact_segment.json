@@ -1,0 +1,100 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:segment_name",
+    "creation": "2025-01-23 01:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "segment_name",
+        "description",
+        "column_break_3",
+        "auto_update",
+        "contact_count",
+        "section_break_6",
+        "filter_conditions",
+        "section_break_8",
+        "last_updated"
+    ],
+    "fields": [
+        {
+            "fieldname": "segment_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Segment Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "auto_update",
+            "fieldtype": "Check",
+            "label": "Auto Update"
+        },
+        {
+            "default": "0",
+            "fieldname": "contact_count",
+            "fieldtype": "Int",
+            "in_list_view": 1,
+            "label": "Contact Count",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Filter Conditions"
+        },
+        {
+            "description": "JSON format filter conditions",
+            "fieldname": "filter_conditions",
+            "fieldtype": "Code",
+            "label": "Filter Conditions",
+            "options": "JSON"
+        },
+        {
+            "fieldname": "section_break_8",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "last_updated",
+            "fieldtype": "Datetime",
+            "label": "Last Updated",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-23 01:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Whatsapp",
+    "name": "WhatsApp Contact Segment",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

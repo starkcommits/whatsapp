@@ -1,0 +1,117 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:rule_name",
+    "creation": "2025-01-23 01:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "rule_name",
+        "active",
+        "column_break_3",
+        "priority",
+        "connection",
+        "section_break_6",
+        "trigger_type",
+        "trigger_value",
+        "section_break_9",
+        "reply_template",
+        "custom_reply"
+    ],
+    "fields": [
+        {
+            "fieldname": "rule_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Rule Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "default": "1",
+            "fieldname": "active",
+            "fieldtype": "Check",
+            "in_list_view": 1,
+            "label": "Active"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "5",
+            "description": "Lower number = higher priority",
+            "fieldname": "priority",
+            "fieldtype": "Int",
+            "label": "Priority"
+        },
+        {
+            "fieldname": "connection",
+            "fieldtype": "Link",
+            "label": "WhatsApp Connection",
+            "options": "WhatsApp Connection"
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Trigger"
+        },
+        {
+            "default": "Keyword",
+            "fieldname": "trigger_type",
+            "fieldtype": "Select",
+            "label": "Trigger Type",
+            "options": "Keyword\\nPattern\\nAll Messages\\nFirst Message",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:['Keyword','Pattern'].includes(doc.trigger_type)",
+            "fieldname": "trigger_value",
+            "fieldtype": "Data",
+            "label": "Trigger Value"
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Reply"
+        },
+        {
+            "fieldname": "reply_template",
+            "fieldtype": "Link",
+            "label": "Reply Template",
+            "options": "WhatsApp Message Template"
+        },
+        {
+            "depends_on": "eval:!doc.reply_template",
+            "fieldname": "custom_reply",
+            "fieldtype": "Text Editor",
+            "label": "Custom Reply"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-23 01:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Whatsapp",
+    "name": "WhatsApp Auto Reply",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

@@ -1,0 +1,235 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:CAMP-{####}",
+    "creation": "2025-01-23 01:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "campaign_name",
+        "campaign_type",
+        "column_break_3",
+        "status",
+        "connection",
+        "section_break_6",
+        "target_segment",
+        "message_template",
+        "section_break_9",
+        "schedule_type",
+        "schedule_datetime",
+        "column_break_12",
+        "sending_rate",
+        "max_messages_per_day",
+        "section_break_15",
+        "total_contacts",
+        "messages_sent",
+        "column_break_18",
+        "messages_delivered",
+        "messages_read",
+        "messages_failed",
+        "section_break_22",
+        "delivery_rate",
+        "read_rate",
+        "column_break_25",
+        "started_at",
+        "completed_at"
+    ],
+    "fields": [
+        {
+            "fieldname": "campaign_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Campaign Name",
+            "reqd": 1
+        },
+        {
+            "default": "Broadcast",
+            "fieldname": "campaign_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Campaign Type",
+            "options": "Broadcast\\nDrip\\nTriggered",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Status",
+            "options": "Draft\\nScheduled\\nRunning\\nPaused\\nCompleted\\nFailed",
+            "reqd": 1
+        },
+        {
+            "fieldname": "connection",
+            "fieldtype": "Link",
+            "label": "WhatsApp Connection",
+            "options": "WhatsApp Connection",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_6",
+            "fieldtype": "Section Break",
+            "label": "Campaign Details"
+        },
+        {
+            "fieldname": "target_segment",
+            "fieldtype": "Link",
+            "label": "Target Segment",
+            "options": "WhatsApp Contact Segment",
+            "reqd": 1
+        },
+        {
+            "fieldname": "message_template",
+            "fieldtype": "Link",
+            "label": "Message Template",
+            "options": "WhatsApp Message Template",
+            "reqd": 1
+        },
+        {
+            "fieldname": "section_break_9",
+            "fieldtype": "Section Break",
+            "label": "Schedule"
+        },
+        {
+            "default": "Immediate",
+            "fieldname": "schedule_type",
+            "fieldtype": "Select",
+            "label": "Schedule Type",
+            "options": "Immediate\\nScheduled\\nRecurring"
+        },
+        {
+            "depends_on": "eval:doc.schedule_type=='Scheduled'",
+            "fieldname": "schedule_datetime",
+            "fieldtype": "Datetime",
+            "label": "Schedule Date & Time"
+        },
+        {
+            "fieldname": "column_break_12",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "10",
+            "description": "Messages per minute",
+            "fieldname": "sending_rate",
+            "fieldtype": "Int",
+            "label": "Sending Rate"
+        },
+        {
+            "default": "1000",
+            "fieldname": "max_messages_per_day",
+            "fieldtype": "Int",
+            "label": "Max Messages Per Day"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "section_break_15",
+            "fieldtype": "Section Break",
+            "label": "Statistics"
+        },
+        {
+            "default": "0",
+            "fieldname": "total_contacts",
+            "fieldtype": "Int",
+            "label": "Total Contacts",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "messages_sent",
+            "fieldtype": "Int",
+            "label": "Messages Sent",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_18",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "messages_delivered",
+            "fieldtype": "Int",
+            "label": "Messages Delivered",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "messages_read",
+            "fieldtype": "Int",
+            "label": "Messages Read",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "messages_failed",
+            "fieldtype": "Int",
+            "label": "Messages Failed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "section_break_22",
+            "fieldtype": "Section Break"
+        },
+        {
+            "default": "0",
+            "fieldname": "delivery_rate",
+            "fieldtype": "Percent",
+            "label": "Delivery Rate",
+            "read_only": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "read_rate",
+            "fieldtype": "Percent",
+            "label": "Read Rate",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_25",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "started_at",
+            "fieldtype": "Datetime",
+            "label": "Started At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "completed_at",
+            "fieldtype": "Datetime",
+            "label": "Completed At",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2025-01-23 01:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Whatsapp",
+    "name": "WhatsApp Campaign",
+    "naming_rule": "Expression",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
+}
